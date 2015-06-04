@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_parseuinteger.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 20:28:26 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 19:21:20 by ngoguey          ###   ########.fr       */
+/*   Created: 2015/06/04 19:19:43 by ngoguey           #+#    #+#             */
+/*   Updated: 2015/06/04 19:19:53 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdarg.h>
-# include "ft_typedefs.h"
-# include "ft_macroes.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_ctype.h"
-# include "ft_string.h"
+size_t				ft_parseuinteger(char *str, size_t *uiptr)
+{
+	size_t	len;
 
-void			ft_skiptype(char **pptr, int (*typefun)(int c));
-void			ft_skipntype(char **pptr, int (*typefun)(int c));
-size_t			ft_parseuinteger(char *str, size_t *uiptr);
-
-#endif
+	len = 0;
+	*uiptr = 0;
+	while (ft_isdigit(*str))
+	{
+		*uiptr *= 10;
+		*uiptr += *str - '0';
+		len++;
+	}
+	return (len);
+}

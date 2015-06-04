@@ -43,13 +43,14 @@ O_FILES := obj/srcs/get_next_line.o \
 	obj/srcs/ft_stdio/ft_putendl.o \
 	obj/srcs/ft_stdlib/ft_itoa_a.o \
 	obj/srcs/ft_ctype/ft_islower.o \
+	obj/srcs/ft_skiptype.o \
 	obj/srcs/ft_stdio/ft_putnbr_base.o \
 	obj/srcs/ft_string/ft_strstr.o \
 	obj/srcs/ft_ctype/ft_iscntrl.o \
 	obj/srcs/ft_ctype/ft_isblank.o \
 	obj/srcs/ft_stdlib/ft_lutoa.o \
 	obj/srcs/ft_ctype/ft_isunixspace.o \
-	obj/srcs/ft_string/ft_memset.o \
+	obj/srcs/ft_skipntype.o \
 	obj/srcs/ft_stdlib/ft_atoi.o \
 	obj/srcs/ft_ctype/ft_isupper.o \
 	obj/srcs/ft_string/ft_strspn.o \
@@ -64,7 +65,7 @@ O_FILES := obj/srcs/get_next_line.o \
 	obj/srcs/ft_debug/ft_printt.o \
 	obj/srcs/ft_string/ft_strjoin.o \
 	obj/srcs/ft_vector/ftv_desctruction.o \
-	obj/srcs/ft_string/ft_strlcat.o \
+	obj/srcs/ft_stdlib/ft_itoa_c.o \
 	obj/srcs/ft_string/ft_strnew.o \
 	obj/srcs/ft_string/ft_memdup.o \
 	obj/srcs/ft_string/ft_strcpy.o \
@@ -87,7 +88,7 @@ O_FILES := obj/srcs/get_next_line.o \
 	obj/srcs/ft_string/ft_strccpy.o \
 	obj/srcs/ft_ctype/ft_isspace.o \
 	obj/srcs/ft_vector/ftv_init.o \
-	obj/srcs/ft_string/ft_strequ.o \
+	obj/srcs/ft_string/ft_memset.o \
 	obj/srcs/ft_string/ft_strncat.o \
 	obj/srcs/ft_ctype/ft_isescape.o \
 	obj/srcs/ft_stdlib/ft_lutoa_a.o \
@@ -97,6 +98,7 @@ O_FILES := obj/srcs/get_next_line.o \
 	obj/srcs/ft_ctype/ft_isascii.o \
 	obj/srcs/ft_stdio/ft_putchar.o \
 	obj/srcs/ft_ctype/ft_isalnum.o \
+	obj/srcs/ft_string/ft_strequ.o \
 	obj/srcs/ft_debug/qprintf.o \
 	obj/srcs/ft_string/ft_strdel.o \
 	obj/srcs/ft_stdio/ft_putstr.o \
@@ -106,9 +108,10 @@ O_FILES := obj/srcs/get_next_line.o \
 	obj/srcs/ft_string/ft_memcpy.o \
 	obj/srcs/ft_string/ft_strdup.o \
 	obj/srcs/ft_stdio/ft_putnbr.o \
+	obj/srcs/ft_string/ft_strlcat.o \
 	obj/srcs/ft_debug/ft_printvar.o \
 	obj/srcs/ft_ctype/ft_isxdigit.o \
-	obj/srcs/ft_stdlib/ft_itoa_c.o \
+	obj/srcs/ft_parseuinteger.o \
 	obj/srcs/ft_stdlib/ft_atoi_base.o \
 	obj/srcs/ft_stdlib/ft_utoa.o \
 	obj/srcs/ft_string/ft_strchr.o \
@@ -147,6 +150,10 @@ obj/srcs/ft_ctype/ft_islower.o: srcs/ft_ctype/ft_islower.c includes/ft_stdlib.h 
 	@mkdir -p obj/srcs/ft_ctype 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
+obj/srcs/ft_skiptype.o: srcs/ft_skiptype.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h
+	@mkdir -p obj/srcs 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
 obj/srcs/ft_stdio/ft_putnbr_base.o: srcs/ft_stdio/ft_putnbr_base.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h
 	@mkdir -p obj/srcs/ft_stdio 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
@@ -171,8 +178,8 @@ obj/srcs/ft_ctype/ft_isunixspace.o: srcs/ft_ctype/ft_isunixspace.c includes/ft_s
 	@mkdir -p obj/srcs/ft_ctype 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/srcs/ft_string/ft_memset.o: srcs/ft_string/ft_memset.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h
-	@mkdir -p obj/srcs/ft_string 2> /dev/null || true
+obj/srcs/ft_skipntype.o: srcs/ft_skipntype.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h
+	@mkdir -p obj/srcs 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
 obj/srcs/ft_stdlib/ft_atoi.o: srcs/ft_stdlib/ft_atoi.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h
@@ -231,8 +238,8 @@ obj/srcs/ft_vector/ftv_desctruction.o: srcs/ft_vector/ftv_desctruction.c include
 	@mkdir -p obj/srcs/ft_vector 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/srcs/ft_string/ft_strlcat.o: srcs/ft_string/ft_strlcat.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
-	@mkdir -p obj/srcs/ft_string 2> /dev/null || true
+obj/srcs/ft_stdlib/ft_itoa_c.o: srcs/ft_stdlib/ft_itoa_c.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
+	@mkdir -p obj/srcs/ft_stdlib 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
 obj/srcs/ft_string/ft_strnew.o: srcs/ft_string/ft_strnew.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
@@ -323,7 +330,7 @@ obj/srcs/ft_vector/ftv_init.o: srcs/ft_vector/ftv_init.c includes/ft_stdlib.h in
 	@mkdir -p obj/srcs/ft_vector 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/srcs/ft_string/ft_strequ.o: srcs/ft_string/ft_strequ.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
+obj/srcs/ft_string/ft_memset.o: srcs/ft_string/ft_memset.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
 	@mkdir -p obj/srcs/ft_string 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
@@ -363,6 +370,10 @@ obj/srcs/ft_ctype/ft_isalnum.o: srcs/ft_ctype/ft_isalnum.c includes/ft_stdlib.h 
 	@mkdir -p obj/srcs/ft_ctype 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
+obj/srcs/ft_string/ft_strequ.o: srcs/ft_string/ft_strequ.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
+	@mkdir -p obj/srcs/ft_string 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
 obj/srcs/ft_debug/qprintf.o: srcs/ft_debug/qprintf.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
 	@mkdir -p obj/srcs/ft_debug 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
@@ -399,6 +410,10 @@ obj/srcs/ft_stdio/ft_putnbr.o: srcs/ft_stdio/ft_putnbr.c includes/ft_stdlib.h in
 	@mkdir -p obj/srcs/ft_stdio 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
+obj/srcs/ft_string/ft_strlcat.o: srcs/ft_string/ft_strlcat.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
+	@mkdir -p obj/srcs/ft_string 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
 obj/srcs/ft_debug/ft_printvar.o: srcs/ft_debug/ft_printvar.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
 	@mkdir -p obj/srcs/ft_debug 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
@@ -407,8 +422,8 @@ obj/srcs/ft_ctype/ft_isxdigit.o: srcs/ft_ctype/ft_isxdigit.c includes/ft_stdlib.
 	@mkdir -p obj/srcs/ft_ctype 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/srcs/ft_stdlib/ft_itoa_c.o: srcs/ft_stdlib/ft_itoa_c.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
-	@mkdir -p obj/srcs/ft_stdlib 2> /dev/null || true
+obj/srcs/ft_parseuinteger.o: srcs/ft_parseuinteger.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h
+	@mkdir -p obj/srcs 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
 obj/srcs/ft_stdlib/ft_atoi_base.o: srcs/ft_stdlib/ft_atoi_base.c includes/ft_stdlib.h includes/ft_typedefs.h includes/get_next_line.h includes/libft.h includes/ft_macroes.h includes/ft_stdio.h includes/ft_ctype.h includes/ft_string.h includes/ft_debug.h includes/ft_vector.h

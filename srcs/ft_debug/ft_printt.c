@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 06:28:10 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 16:12:23 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/04 19:24:12 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_debugdatas		*dbg_instance(void)
 	return (&g_debug_datas);
 }
 
-void                dbg_printline(size_t gid)
+void				dbg_printline(size_t gid)
 {
 	t_debugline const	*l = ((t_debugline*)g_debug_datas.lines.data) + gid;
 
@@ -45,7 +45,7 @@ void                dbg_printline(size_t gid)
 	return ;
 }
 
-static void		new_line(const char *file, const char *func, int line)
+static void			new_line(const char *file, const char *func, int line)
 {
 	t_debugline		tmp;
 
@@ -59,7 +59,7 @@ static void		new_line(const char *file, const char *func, int line)
 	return ;
 }
 
-void			dbg_printt(const char *file, const char *func, int line)
+void				dbg_printt(const char *file, const char *func, int line)
 {
 	size_t			i;
 	t_debugline		*l;
