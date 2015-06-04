@@ -6,17 +6,18 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 15:55:51 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 16:35:25 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/04 19:23:42 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_debug.h"
 
-void                dbg_recap(void)
+void			dbg_recap(void)
 {
-	size_t		i = 0;
+	size_t		i;
 	size_t		len;
 
+	i = 0;
 	len = dbg_instance()->lines.size;
 	while (i < len)
 	{
@@ -26,11 +27,12 @@ void                dbg_recap(void)
 	return ;
 }
 
-void                dbg_resetlog(void)
+void			dbg_resetlog(void)
 {
 	t_ftvector	*v;
-	size_t		i = 0;
+	size_t		i;
 
+	i = 0;
 	v = &dbg_instance()->lines;
 	while (i < v->size)
 	{
@@ -40,14 +42,14 @@ void                dbg_resetlog(void)
 	return ;
 }
 
-void                dbg_noprint(void)
+void			dbg_noprint(void)
 {
 	dbg_instance()->print = false;
 	return ;
 }
 
-void                dbg_doprint(void)
+void			dbg_doprint(void)
 {
-	dbg_instance()->print = true;	
+	dbg_instance()->print = true;
 	return ;
 }
