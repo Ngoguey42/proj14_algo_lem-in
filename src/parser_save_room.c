@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/05 13:52:02 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 16:18:55 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 17:29:46 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,15 @@ static int			alloc_room(t_env *e, t_line *l, t_linetype prev_type,
 	roomptr->x = l->v1;
 	roomptr->y = l->v2;
 	if (prev_type == startflag)
+	{
 		roomptr->flags = START_ROOM_FLAG;
+		e->startid = roomptr->gid;
+	}
 	else if (prev_type == endflag)
+	{
 		roomptr->flags = END_ROOM_FLAG;
+		e->endid = roomptr->gid;
+	}
 	else
 		roomptr->flags = 0;
 	return (0);

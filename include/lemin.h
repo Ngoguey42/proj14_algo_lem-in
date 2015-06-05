@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:10:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 16:28:48 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 18:16:02 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 typedef struct	s_env
 {
 	t_ftvector	rooms;
+	int			startid;
+	int			endid;
 	t_byte		*connections;
 	t_ftvector	routes;
 	size_t		num_ants;
@@ -57,7 +59,6 @@ typedef struct	s_line
 ** Core functions.
 */
 void		li_put_anthill(t_env const *e);
-
 /*
 ** Parsing functions.
 */
@@ -66,5 +67,13 @@ int			li_parse_next_line(t_line *line);
 int			li_save_connection(t_env *e, t_line *l);
 int			li_save_room(t_env *e, t_line *l, t_linetype prev_type);
 int			li_is_namechar(int c);
+/*
+** Routes calc functions.
+*/
+void		li_calc_routes(t_env *e);
+/*
+** Debug
+*/
+void		li_print_routes(t_env const *e);
 
 #endif

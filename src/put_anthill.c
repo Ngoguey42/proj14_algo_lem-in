@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/05 16:23:41 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 17:01:02 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 18:25:53 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		print_connections(t_byte const *c, size_t const n,
 	while (i < n - 1u)
 	{
 		j = i + 1u;
-		while (j < n - 1u)
+		while (j < n)
 		{
 			if (*CONNECTION_ABVS(i, j, c, n))
 			{
@@ -61,6 +61,8 @@ static void		print_connections(t_byte const *c, size_t const n,
 
 void			li_put_anthill(t_env const *e)
 {
+	ft_putnbr(e->num_ants);	
+	ft_putchar('\n');
 	print_rooms(&e->rooms);
 	print_connections(e->connections, e->rooms.size, (t_room*)e->rooms.data);
 	return ;

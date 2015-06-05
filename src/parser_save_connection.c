@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/05 13:51:58 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 15:57:21 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 18:26:01 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int					li_save_connection(t_env *e, t_line *l)
 	l->name2[ft_strlentype(l->name2, &li_is_namechar)] = '\0';
 	if (get_gids(gid, &e->rooms, l->name1, l->name2))
 		return (DEBUG("Room name not found"), 1);
-	free(l->ptr);
+	free(l->ptr);	
 	*CONNECTION_AB(gid[0], gid[1]) = 1;
 	*CONNECTION_AB(gid[1], gid[0]) = 1;
 	return (0);

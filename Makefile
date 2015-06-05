@@ -44,10 +44,12 @@ C_HEADS := -I include/ -I libft/includes/
 
 O_FILES := obj/src/put_anthill.o \
 	obj/src/parser_line.o \
-	obj/src/parser.o \
+	obj/src/calc_routes.o \
+	obj/src/parser_save_room.o \
+	obj/src/debug.o \
 	obj/src/main.o \
 	obj/src/parser_save_connection.o \
-	obj/src/parser_save_room.o
+	obj/src/parser.o
 
 MSG_0 := printf '\033[0;32m%-32.32s\033[0;0m\r'
 MSG_1 := printf '\033[0;31m%-32.32s\033[0;0m\n'
@@ -69,7 +71,15 @@ obj/src/parser_line.o: src/parser_line.c include/lemin.h include/anthill_structs
 	@mkdir -p obj/src 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/src/parser.o: src/parser.c include/lemin.h include/anthill_structs.h
+obj/src/calc_routes.o: src/calc_routes.c include/lemin.h include/anthill_structs.h
+	@mkdir -p obj/src 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
+obj/src/parser_save_room.o: src/parser_save_room.c include/lemin.h include/anthill_structs.h
+	@mkdir -p obj/src 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
+obj/src/debug.o: src/debug.c include/lemin.h include/anthill_structs.h
 	@mkdir -p obj/src 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
@@ -81,7 +91,7 @@ obj/src/parser_save_connection.o: src/parser_save_connection.c include/lemin.h i
 	@mkdir -p obj/src 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
-obj/src/parser_save_room.o: src/parser_save_room.c include/lemin.h include/anthill_structs.h
+obj/src/parser.o: src/parser.c include/lemin.h include/anthill_structs.h
 	@mkdir -p obj/src 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
