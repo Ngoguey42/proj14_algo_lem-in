@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:46:26 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 15:36:47 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 16:13:37 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int		parse_anthill_info(char *data, t_line *line)
 		return (parse_connection(data, line));
 	return (parse_room(data, line));
 }
-
+extern int i;
 int				li_parse_next_line(t_line *line)
 {
 	char		*data;
@@ -85,8 +85,6 @@ int				li_parse_next_line(t_line *line)
 
 	err = get_next_line(0, &line->ptr);
 	data = line->ptr;
-	/* T; */
-	qprintf("line:'%s'\n", data);
 	if (err < 0)
 		return (err);
 	ft_skiptype(&data, &ft_isblank);	
