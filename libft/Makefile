@@ -27,7 +27,7 @@ C_CC := clang
 LD_CC := ar
 
 # Clang flags
-C_FLAGS := -Wall -Wextra -Werror -O2
+C_FLAGS := -Wall -Wextra -Werror -O2 -g
 
 # Linking flags
 LD_FLAGS := rcs

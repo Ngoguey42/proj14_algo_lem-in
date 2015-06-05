@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:08:49 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 19:17:57 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 14:34:50 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int					init_env(t_env *e)
 {
 	ft_bzero(e, sizeof(e));
+	ftv_init_instance(&e->rooms, sizeof(t_room));
 	return (0);
 }
 

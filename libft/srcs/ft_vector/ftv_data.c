@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 11:31:39 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 19:22:13 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 15:31:54 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int			ftv_push_back(t_ftvector *v, void const *ptr)
 	if (v->size >= v->capacity)
 	{
 		v->capacity = v->size * 2;
-		v->data = ft_realloc(v->data, v->size, v->capacity);
+		v->data = ft_realloc(v->data, v->size * v->chunk_size,
+								v->capacity * v->chunk_size);
 		if (v->data == NULL)
 			return (ENOMEM);
 	}
@@ -57,7 +58,8 @@ int			ftv_insert(t_ftvector *v, void const *ref, size_t count)
 	{
 		while (v->capacity <= v->size + count)
 			v->capacity *= 2;
-		v->data = ft_realloc(v->data, v->size, v->capacity);
+		v->data = ft_realloc(v->data, v->size * v->chunk_size,
+								v->capacity * v->chunk_size);
 		if (v->data == NULL)
 			return (ENOMEM);
 	}

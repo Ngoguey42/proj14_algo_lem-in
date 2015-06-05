@@ -6,19 +6,25 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:27:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 17:32:45 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 14:17:26 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANTHILL_STRUCTS_S
 # define ANTHILL_STRUCTS_S
 
+# define START_ROOM_FLAG	0x1
+# define END_ROOM_FLAG		0x2
+
+# define ROOM_I(V, I) (((t_room*)(V).data) + (I))
+# define CONNECTION_AB(A, B) (e->connections + (A) * e->rooms.size + (B))
+
 typedef struct  s_room
 {
 	int			gid;
 	char		*name;
-	int			x;
-	int			y;
+	size_t		x;
+	size_t		y;
 	char		flags;
 }               t_room;
 

@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/24 08:31:08 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/03 16:12:31 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 15:03:27 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		return (NULL);
 	if (new_size < old_size)
 		old_size = new_size;
-	if (ptr && old_size > 0)
-	{
-		ft_memcpy(new, ptr, old_size);
-		free(ptr);
-	}
+	ft_memcpy(new, ptr, old_size);
+	free(ptr);
 	return (new);
 }
