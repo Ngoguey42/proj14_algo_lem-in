@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 20:28:26 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 19:21:20 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 15:43:11 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 void			ft_skiptype(char **pptr, int (*typefun)(int c));
 void			ft_skipntype(char **pptr, int (*typefun)(int c));
 size_t			ft_parseuinteger(char *str, size_t *uiptr);
+size_t			ft_strlentype(char const *str, int (*typefun)(int c));
 
 #endif

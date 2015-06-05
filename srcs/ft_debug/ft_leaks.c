@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parseuinteger.c                                 :+:      :+:    :+:   */
+/*   ft_leaks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/04 19:19:43 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 14:23:48 by ngoguey          ###   ########.fr       */
+/*   Created: 2015/06/05 15:44:17 by ngoguey           #+#    #+#             */
+/*   Updated: 2015/06/05 15:48:09 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-size_t				ft_parseuinteger(char *str, size_t *uiptr)
+#include "ft_debug.h"
+
+void                ft_leaks(void)
 {
-	size_t	len;
+	char	buf[128];
 
-	len = 0;
-	*uiptr = 0;
-	while (ft_isdigit(*str))
-	{
-		*uiptr *= 10;
-		*uiptr += *str - '0';
-		str++;
-		len++;
-	}
-	return (len);
+	snprintf(buf, 128, "leaks %d | tail -n 1", getpid());
+	system(buf);
+	exit(0);
+	return ;
 }

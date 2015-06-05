@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parseuinteger.c                                 :+:      :+:    :+:   */
+/*   ft_strlentype.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/04 19:19:43 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 14:23:48 by ngoguey          ###   ########.fr       */
+/*   Created: 2015/06/05 15:42:47 by ngoguey           #+#    #+#             */
+/*   Updated: 2015/06/05 15:48:52 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-size_t				ft_parseuinteger(char *str, size_t *uiptr)
+size_t				ft_strlentype(char const *str, int (*typefun)(int c))
 {
 	size_t	len;
 
 	len = 0;
-	*uiptr = 0;
-	while (ft_isdigit(*str))
-	{
-		*uiptr *= 10;
-		*uiptr += *str - '0';
-		str++;
+	while (typefun(*str++))
 		len++;
-	}
 	return (len);
 }
