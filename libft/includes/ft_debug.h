@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/01 12:00:09 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/04 16:13:26 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 15:48:28 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /*
 ** Privates
 */
+
+# include <assert.h>
 
 # include "ft_typedefs.h"
 # include "ft_vector.h"
@@ -55,5 +57,6 @@ void				dbg_doprint(void);
 
 int					qprintf(const char *format, ...);
 int					lprintf(const char *format, ...);
+void				ft_leaks(void);
 
 #endif
