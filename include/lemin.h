@@ -28,14 +28,15 @@
 */
 typedef struct	s_env
 {
-	t_ftvector	lines;
 	t_ftvector	rooms;
+	t_byte		**connections;
 	t_ftvector	routes;
 }				t_env;
 
 typedef enum	e_linetype
 {
-	comment = 0,
+	empty = 0,
+	comment,
 	room,
 	connection,
 	startflag,
