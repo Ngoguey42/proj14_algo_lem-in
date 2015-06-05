@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:27:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 14:17:26 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 16:55:21 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define END_ROOM_FLAG		0x2
 
 # define ROOM_I(V, I) (((t_room*)(V).data) + (I))
+# define CONNECTION_ABVS(A,B,V,S) ((V) + (A) * (S) + (B))
 # define CONNECTION_AB(A, B) (e->connections + (A) * e->rooms.size + (B))
 
 typedef struct  s_room

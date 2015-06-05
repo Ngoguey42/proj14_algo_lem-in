@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:08:49 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 16:01:09 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 16:23:20 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int							main(void)
 		ft_putstr_fd("init_env failed\n", 2);
 	if (li_parse(&e))
 		ft_putstr_fd("parsing failed\n", 2);	
+	li_put_anthill(&e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:46:26 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 16:13:37 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/05 17:04:24 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int		parse_anthill_info(char *data, t_line *line)
 		return (parse_connection(data, line));
 	return (parse_room(data, line));
 }
-extern int i;
+
 int				li_parse_next_line(t_line *line)
 {
 	char		*data;
@@ -94,11 +94,6 @@ int				li_parse_next_line(t_line *line)
 	{
 		line->type = comment;
 		return (free(line->ptr), err);		
-	}
-	if (*data == '\0')
-	{
-		line->type = empty;
-		return (free(line->ptr), 1);
 	}
 	return (parse_anthill_info(data, line));
 }
