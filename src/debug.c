@@ -44,3 +44,18 @@ void				li_print_routes(t_env const *e)
 	qprintf("Num: %u\n", e->routes.size);
 	return ;
 }
+
+void				li_print_bestcombo(t_env const *e)
+{
+	size_t		i;
+
+	lprintf("%u routes, %d ticks", e->best_combo.num_routes,
+									e->best_combo.num_ticks);
+	i = 0;
+	while (i < e->best_combo.num_routes)
+	{
+		li_print_route(e, ROUTE_I(e->routes, e->best_combo.routes[i]));
+		i++;
+	}
+	return ;
+}

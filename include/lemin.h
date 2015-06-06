@@ -82,5 +82,6 @@ int			li_combo_ticks(t_env const *e, int const *route_stack,
 ** Debug
 */
 void		li_print_routes(t_env const *e);
+void		li_print_bestcombo(t_env const *e);
 
 #endif

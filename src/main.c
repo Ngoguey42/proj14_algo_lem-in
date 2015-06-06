@@ -37,7 +37,7 @@ int							main(void)
 	free(e.connections);
 	e.connections = NULL;
 	li_calc_combos(&e);
-	// calc best routes combo
+	li_print_bestcombo(&e);	//debug
 	// send ants.
 	// leave
 	return (0);
