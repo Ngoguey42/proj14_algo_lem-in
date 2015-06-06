@@ -14,8 +14,9 @@
 
 static int					init_env(t_env *e)
 {
-	ft_bzero(e, sizeof(e));
-	ftv_init_instance(&e->rooms, sizeof(t_room));
+	ft_bzero(e, sizeof(*e));
+	if (ftv_init_instance(&e->rooms, sizeof(t_room)))
+		return (1);
 	return (0);
 }
 
@@ -24,9 +25,9 @@ int							main(void)
 	t_env	e;
 
 	if (init_env(&e))
-		ft_putstr_fd("init_env failed\n", 2);
+		return (DEBUG("init_env failed\n"), 1);
 	if (li_parse(&e))
-		ft_putstr_fd("parsing failed\n", 2);	
+		return (DEBUG("parsing failed\n"), 1);
 	li_put_anthill(&e);
 	li_calc_routes(&e);
 	li_print_routes(&e);

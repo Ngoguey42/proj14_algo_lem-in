@@ -22,6 +22,21 @@ static t_bool	is_available(t_env *e, int *room_stack, int stacki, int i)
 	return (true);
 }
 
+static t_bool	was_reachable_earlier(t_env const *e, int const *room_stack,
+										int const stacki, int const roomi)
+{
+	int		i;
+
+	i = 0;
+	while (i <= stacki - 1)
+	{
+		if (*CONNECTION_AB(roomi, room_stack[i]))
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
 static void		save_route(t_env *e, int *room_stack, int stacki)
 {
 	t_route		tmp;
@@ -47,7 +62,8 @@ static void		recurse_entry_point(t_env *e, int *room_stack, int const stacki)
 	while (i < e->rooms.size)
 	{
 		if (*CONNECTION_AB(i, room_stack[stacki]) &&
-			is_available(e, room_stack, stacki, (int)i))
+			is_available(e, room_stack, stacki, (int)i) &&
+			!was_reachable_earlier(e, room_stack, stacki, (int)i))
 		{
 			room_stack[stacki + 1] = (int)i;
 			recurse_entry_point(e, room_stack, stacki + 1);

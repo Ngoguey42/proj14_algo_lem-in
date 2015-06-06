@@ -33,11 +33,13 @@ void				li_print_routes(t_env const *e)
 	size_t		i;
 
 	i = 0;
-	while (i < e->routes.size)
+	while (i < 1000 && i < e->routes.size)
 	{
 		li_print_route(e, ROUTE_I(e->routes, i));
 		i++;
 	}
+	if (i == 1000)
+		lprintf("...\n");
 	qprintf("Num: %u\n", e->routes.size);
 	return ;
 }

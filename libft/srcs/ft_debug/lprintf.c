@@ -12,7 +12,6 @@
 
 #include <stdio.h>
 #include <stdarg.h>
-#include <math.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include "libft.h"
@@ -33,7 +32,7 @@ int		lprintf(const char *fmt, ...)
 	ft_bzero(&w, sizeof(struct winsize));
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 	va_start(ap, fmt);
-	vsnprintf(buf, fminl(w.ws_col + 1, 255), fmt, ap);
+	vsnprintf(buf, MIN(w.ws_col + 1, 255), fmt, ap);
 	ret = fprintf(stderr, "%s\n", buf);
 	va_end(ap);
 	fflush(stderr);
