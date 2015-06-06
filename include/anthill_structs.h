@@ -37,4 +37,11 @@ typedef struct  s_route
 	size_t		len;
 }               t_route;
 
+typedef struct	s_combo
+{
+	int			num_ticks;
+	size_t		num_routes;
+	int			*routes;
+}				t_combo;
+
 #endif

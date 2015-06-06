@@ -30,9 +30,12 @@ int							main(void)
 		return (DEBUG("parsing failed\n"), 1);
 	li_put_anthill(&e);
 	li_calc_routes(&e);
-	li_print_routes(&e);
-	// calc routes
-	// if numroutes=0 exit
+	li_print_routes(&e);	//debug
+	if (e.routes.size == 0)
+		return (DEBUG("No routes available\n"), 1);
+	free(e->connections);
+	e->connections = NULL;
+	li_calc_combos(&e);
 	// calc best routes combo
 	// send ants.
 	// leave

@@ -27,12 +27,13 @@
 */
 typedef struct	s_env
 {
+	size_t		num_ants;
 	t_ftvector	rooms;
 	int			startid;
 	int			endid;
 	t_byte		*connections;
 	t_ftvector	routes;
-	size_t		num_ants;
+	t_combo		best_combo;
 }				t_env;
 
 typedef enum	e_linetype
@@ -68,9 +69,13 @@ int			li_save_connection(t_env *e, t_line *l);
 int			li_save_room(t_env *e, t_line *l, t_linetype prev_type);
 int			li_is_namechar(int c);
 /*
-** Routes calc functions.
+** Routes calculation functions.
 */
 void		li_calc_routes(t_env *e);
+/*
+** Routes combo calculation functions.
+*/
+void		li_calc_combos(t_env *e);
 /*
 ** Debug
 */
