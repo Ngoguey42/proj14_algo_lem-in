@@ -17,6 +17,7 @@ void				li_print_route(t_env const *e, t_route const *r)
 	size_t		i;
 
 	i = 0;
+	ft_putchar('(');
 	while (i < r->len)
 	{
 		if (i != 0)
@@ -24,7 +25,7 @@ void				li_print_route(t_env const *e, t_route const *r)
 		ft_putstr(ROOM_I(e->rooms, r->rooms[i])->name);
 		i++;
 	}
-	ft_putchar('\n');
+	ft_putstr(")\n");
 	return ;
 }
 

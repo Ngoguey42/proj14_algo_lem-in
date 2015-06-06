@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lemin.h"
+#include <stdlib.h>
 
 static int					init_env(t_env *e)
 {
@@ -33,8 +34,8 @@ int							main(void)
 	li_print_routes(&e);	//debug
 	if (e.routes.size == 0)
 		return (DEBUG("No routes available\n"), 1);
-	free(e->connections);
-	e->connections = NULL;
+	free(e.connections);
+	e.connections = NULL;
 	li_calc_combos(&e);
 	// calc best routes combo
 	// send ants.

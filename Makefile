@@ -49,7 +49,9 @@ O_FILES := obj/src/put_anthill.o \
 	obj/src/debug.o \
 	obj/src/main.o \
 	obj/src/parser_save_connection.o \
-	obj/src/parser.o
+	obj/src/parser.o \
+	obj/src/calc_combo_ticks.o \
+	obj/src/calc_combo_routes.o
 
 MSG_0 := printf '\033[0;32m%-32.32s\033[0;0m\r'
 MSG_1 := printf '\033[0;31m%-32.32s\033[0;0m\n'
@@ -92,6 +94,14 @@ obj/src/parser_save_connection.o: src/parser_save_connection.c include/lemin.h i
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 
 obj/src/parser.o: src/parser.c include/lemin.h include/anthill_structs.h
+	@mkdir -p obj/src 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
+obj/src/calc_combo_ticks.o: src/calc_combo_ticks.c include/lemin.h include/anthill_structs.h
+	@mkdir -p obj/src 2> /dev/null || true
+	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
+
+obj/src/calc_combo_routes.o: src/calc_combo_routes.c include/lemin.h include/anthill_structs.h
 	@mkdir -p obj/src 2> /dev/null || true
 	@$(MSG_0) $< ; clang $(C_FLAGS) $(C_HEADS) -c -o $@ $< || ($(MSG_1) $< && false)
 

@@ -28,7 +28,7 @@ static t_bool	was_reachable_earlier(t_env const *e, int const *room_stack,
 	int		i;
 
 	i = 0;
-	while (i <= stacki - 1)
+	while (i < stacki)
 	{
 		if (*CONNECTION_AB(roomi, room_stack[i]))
 			return (true);

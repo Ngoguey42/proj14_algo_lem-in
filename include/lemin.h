@@ -76,6 +76,8 @@ void		li_calc_routes(t_env *e);
 ** Routes combo calculation functions.
 */
 void		li_calc_combos(t_env *e);
+int			li_combo_ticks(t_env const *e, int const *route_stack,
+							int const stacki);
 /*
 ** Debug
 */

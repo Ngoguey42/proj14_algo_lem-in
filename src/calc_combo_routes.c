@@ -3,28 +3,39 @@
 #include <limits.h>
 #include <stdlib.h>
 
-static int		combo_ticks(t_env const *e, int const *route_stack,
-							int const stacki)
-{
-	int		ticks;
-
-	ticks = 0;
-	return (ticks);
-}
-
-static t_bool	can_cohabit(t_env const *e, int const *route_stack,
+static t_bool	overlaps(t_env const *e, int const *route_stack,
 							int const stacki, t_route const *route)
 {
-	
-	return (true);
+	size_t			i;
+	int				j;
+	t_route const	*route2;
+	size_t			k;
+
+	i = 0;
+	while (i < route->len)
+	{	// pour chaque salles de la 'route'
+		j = 0;
+		while (j <= stacki)
+		{ // pour chaque routes de la stack
+			route2 = ROUTE_I(e->routes, route_stack[j]);
+			k = 0;
+			while (k < route2->len) //pour chaque salles de la 'route2';
+				if (route->rooms[i] == route2->rooms[k++])
+					return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
 }
 
 static void		recurse_entry_point(t_env *e, int *route_stack,
 					int const stacki)
 {
 	size_t		i;
-	int const	ticks = combo_ticks(e, route_stack, stacki);
+	int const	ticks = li_combo_ticks(e, route_stack, stacki);
 
+	lprintf("(%d routes) %3d (%d) ", stacki + 1, ticks, e->best_combo.num_ticks);
 	if (ticks < e->best_combo.num_ticks)
 	{
 		e->best_combo.num_ticks = ticks;
@@ -35,10 +46,10 @@ static void		recurse_entry_point(t_env *e, int *route_stack,
 	i = (size_t)route_stack[stacki] + 1;
 	while (i < e->routes.size)
 	{
-		if (can_cohabit(e, route_stack, stacki, ROUTE_I(e->routes, i)))
+		if (!overlaps(e, route_stack, stacki, ROUTE_I(e->routes, i)))
 		{
 			route_stack[stacki + 1] = (int)i;
-			recurse_entry_point((e, route_stack, stacki + 1);
+			recurse_entry_point(e, route_stack, stacki + 1);
 		}
 		i++;
 	}
