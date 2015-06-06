@@ -18,9 +18,13 @@
 # include "libft.h"
 # include "ft_debug.h" // debug, to remove
 
-# define DEBUG(ARG) lprintf("%s", (ARG))
+# define DEBUG(ARG) lprintf("%s", (ARG)) //debug!!
 
 # include "anthill_structs.h"
+
+# define P1_FULL_SENDIND		phases[0]
+# define P2_PARTIAL_SENDING		phases[1]
+# define P3_SENDING_DONE		phases[2]
 
 /*
 ** Env
@@ -78,6 +82,10 @@ void		li_calc_routes(t_env *e);
 void		li_calc_combos(t_env *e);
 int			li_combo_ticks(t_env const *e, int const *route_stack,
 							int const stacki);
+void		li_combo_ticks_decomposed(t_env const *e, size_t phases[3]);
+/*
+** Ants sending functions.
+*/
 /*
 ** Debug
 */
