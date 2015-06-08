@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/08 10:57:39 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/08 11:44:30 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/08 13:00:03 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void					release_trafic(t_env const *e, t_trafic *trafic)
 
 	i = 0;
 	while (i < e->best_combo.num_routes)
-		free(trafic[i].ants_id);
+		free(trafic[i++].ants_id);
 	return ;
 }
 
@@ -51,10 +51,26 @@ void				li_send_ants(t_env *e)
 	size_t					i;
 
 	li_combo_ticks_decomposed(e, phases);
+	T;
+	DEBUGF("p1(%u), p1(%u), p1(%u)", phases[0], phases[1], phases[2]);
 	init_trafic(e, trafic);
+	T;
 	i = 0;
 	while (i++ < P1_FULL_SENDIND)
-		li_forward_all_ants(e, trafic), li_insert_all_routes(e, trafic);
+		li_forward_all_ants(e, trafic),
+			li_insert_all_routes(e, trafic),
+			li_print_action(e, 0, 0, true);
+	T;
+	i = 0;
+	while (i++ < P2_PARTIAL_SENDING)
+		li_forward_all_ants(e, trafic),
+			li_insert_some_routes(e, trafic, i - 1, P2_PARTIAL_SENDING),
+			li_print_action(e, 0, 0, true);
+	T;
+	i = 0;
+	while (i++ < P3_SENDING_DONE)
+		li_forward_all_ants(e, trafic),
+			li_print_action(e, 0, 0, true);
 	release_trafic(e, trafic);
 	return ;
 }

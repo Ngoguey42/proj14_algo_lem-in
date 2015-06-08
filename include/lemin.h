@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:10:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/08 11:43:44 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/08 12:57:48 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "ft_debug.h" // debug, to remove
 
 # define DEBUG(ARG) lprintf("%s", (ARG)) //debug!!
+# define DEBUGF(...) lprintf(__VA_ARGS__) //debug!!
 
 # include "anthill_structs.h"
 
@@ -38,6 +39,7 @@ typedef struct	s_env
 	t_byte		*connections;
 	t_ftvector	routes;
 	t_combo		best_combo;
+	int			ants_sent;
 }				t_env;
 
 typedef enum	e_linetype
@@ -88,7 +90,11 @@ void		li_combo_ticks_decomposed(t_env const *e, size_t phases[3]);
 */
 void		li_send_ants(t_env *e);
 void		li_forward_all_ants(t_env const *e, t_trafic *trafic);
-void		li_insert_all_routes(t_env const *e, t_trafic *trafic);
+void		li_insert_all_routes(t_env *e, t_trafic *trafic);
+void		li_insert_some_routes(t_env *e, t_trafic *trafic,
+									int const itick, int const numticks);
+void		li_print_action(t_env const *e, int antid, int roomid,
+							t_bool reset);
 /*
 ** Debug
 */
