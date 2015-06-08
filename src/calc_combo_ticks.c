@@ -71,7 +71,7 @@ void				li_combo_ticks_decomposed(t_env const *e, size_t phases[3])
 {
 	size_t			datas[5];
 
-	build_datas(e, e->best_combo.routes, e->best_combo.num_routes + 1, datas);
+	build_datas(e, e->best_combo.routes, e->best_combo.num_routes - 1, datas);
 	P1_FULL_SENDIND = ceildiv(NUM_ANTS - MIN_ANTS, NUM_ROUTES);
 	P2_PARTIAL_SENDING = MAX_DIFF;
 	P3_SENDING_DONE = MIN_LEN;

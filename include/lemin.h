@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:10:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 18:16:02 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/08 11:43:44 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,9 @@ void		li_combo_ticks_decomposed(t_env const *e, size_t phases[3]);
 /*
 ** Ants sending functions.
 */
+void		li_send_ants(t_env *e);
+void		li_forward_all_ants(t_env const *e, t_trafic *trafic);
+void		li_insert_all_routes(t_env const *e, t_trafic *trafic);
 /*
 ** Debug
 */

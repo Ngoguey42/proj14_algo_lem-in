@@ -1,0 +1,21 @@
+5
+##start
+start 0 1
+##end
+end 0 2
+a 0 3
+b 0 4
+c 0 5
+d 0 6
+e 0 7
+f 0 8
+start-a
+a-b
+b-c
+start-b
+c-a
+end-f
+f-e
+e-d
+d-f
+d-end

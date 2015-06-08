@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:08:49 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 18:26:14 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/08 11:57:58 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int							main(void)
 	e.connections = NULL;
 	li_calc_combos(&e);
 	li_print_bestcombo(&e);	//debug
+	li_send_ants(&e);
 	// send ants.
 	// leave
 	return (0);

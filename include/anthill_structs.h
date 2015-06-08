@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:27:15 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/06/05 18:09:32 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/06/08 11:21:55 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@
 # define CONNECTION_ABVS(A,B,V,S) ((V) + (A) * (S) + (B))
 # define CONNECTION_AB(A, B) (e->connections + (A) * e->rooms.size + (B))
 
-typedef struct  s_room
+typedef struct	s_room
 {
 	int			gid;
 	char		*name;
 	size_t		x;
 	size_t		y;
 	char		flags;
-}               t_room;
+}				t_room;
 
-typedef struct  s_route
+typedef struct	s_route
 {
 	int			gid;
 	int			*rooms;
 	size_t		len;
-}               t_route;
+}				t_route;
 
 typedef struct	s_combo
 {
@@ -43,5 +43,13 @@ typedef struct	s_combo
 	size_t		num_routes;
 	int			*routes;
 }				t_combo;
+
+typedef struct	s_trafic
+{
+	int			gid;
+	int			*rooms;
+	size_t		len;
+	int			*ants_id;
+}				t_trafic;
 
 #endif
